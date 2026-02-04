@@ -10,7 +10,7 @@ public class Menu {
     @Autowired
     private List<Pizza> pizze;
     @Autowired
-    private List<Drink> daBere;
+    private List<Drink> drinksList;
 
     public void printMenu(){
         System.out.println("MENU");
@@ -19,12 +19,12 @@ public class Menu {
         pizze.forEach(p-> System.out.println(p));
         System.out.println();
         System.out.println("Bevande");
-        pizze.forEach(d -> System.out.println(d));
+        drinksList.forEach(d -> System.out.println(d));
     }
 
     public Menu(List<Pizza> pizze, List<Drink> daBere) {
         this.pizze = pizze;
-        this.daBere = daBere;
+        this.drinksList = daBere;
     }
 
     public Menu() {
