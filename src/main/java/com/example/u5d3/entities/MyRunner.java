@@ -19,8 +19,11 @@ public class MyRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Menu m = ctx.getBean(Menu.class);
-        m.printMenu();
+        Menu menu = ctx.getBean(Menu.class);
+        menu.printMenu();
+
+        Ordine ordine = ctx.getBean(Ordine.class);
+        System.out.println(ordine);
 
     }
 }

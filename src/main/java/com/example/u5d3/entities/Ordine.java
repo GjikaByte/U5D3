@@ -30,4 +30,18 @@ public class Ordine {
         this.costocoperto = costocoperto;
         this.importoTotale = costocoperto*numeroCoperti + elementoMenu.stream().mapToDouble(elem -> elem.getPrice()).sum();
     }
+
+    @Override
+    public String toString() {
+        return "Ordine{" +
+                "tavolo=" + tavolo +
+                ", elementoMenu=" + elementoMenu +
+                ", numeroOrdine=" + numeroOrdine +
+                ", statoOrdine=" + statoOrdine +
+                ", numeroCoperti=" + numeroCoperti +
+                ", oraAcquisizione=" + oraAcquisizione +
+                ", costocoperto=" + costocoperto +
+                ", importoTotale=" + importoTotale +
+                '}';
+    }
 }
