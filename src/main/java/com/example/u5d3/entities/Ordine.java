@@ -17,10 +17,9 @@ public class Ordine {
     private double costocoperto;
     private double importoTotale;
 
-    public Ordine(Tavolo tavolo, List<Item> elementoMenu, int numeroOrdine, StatoOrdine statoOrdine, int numeroCoperti, LocalDate oraAcquisizione, int costocoperto) {
+    public Ordine(Tavolo tavolo, List<Item> elementoMenu, int numeroOrdine, StatoOrdine statoOrdine, int numeroCoperti, LocalDate oraAcquisizione, double costocoperto) {
         if(numeroCoperti > tavolo.getNumeroMaxCoperti()){
-            System.out.println("Il tavolo selezionato non ha abbastanza coperti");
-            return;
+            throw new IllegalArgumentException("Il tavolo selezionato non ha abbastanza coperti");
         }
         this.tavolo = tavolo;
         this.elementoMenu = elementoMenu;
@@ -28,6 +27,7 @@ public class Ordine {
         this.statoOrdine = statoOrdine;
         this.numeroCoperti = numeroCoperti;
         this.oraAcquisizione = oraAcquisizione;
+        this.costocoperto = costocoperto;
         this.importoTotale = costocoperto*numeroCoperti + elementoMenu.stream().mapToDouble(elem -> elem.getPrice()).sum();
     }
 }

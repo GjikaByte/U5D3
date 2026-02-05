@@ -1,10 +1,12 @@
 package com.example.u5d3.entities;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,6 +47,7 @@ public class AppConfig {
         return new Pizza("Pizza Margherita", toppingsList);
     }
 
+    @Bean
     public Pizza pizzaHawaiian(){
         List<Topping> toppingsList = new ArrayList<>();
         toppingsList.add(toppingTomato());
@@ -89,5 +92,20 @@ public class AppConfig {
         return drinks;
     }
 
+    @Bean
+    public Tavolo tavolo1(){
+        return new Tavolo(StatoTavolo.LIBERO,4,1 );
+    }
 
+    @Bean
+    public Ordine ordine1 (@Value("${prezzo_coperto}") double prezzoCoperto){
+        List<Item> itemsOrdine = new ArrayList<>();
+        itemsOrdine.add(drinkWater());
+        itemsOrdine.add(drinkWater());
+        itemsOrdine.add(drinkWater());
+        itemsOrdine.add(pizzaHawaiian());
+        itemsOrdine.add(pizzaHawaiian());
+        itemsOrdine.add(pizzaHawaiian());
+        return new Ordine(tavolo1(),itemsOrdine,1,StatoOrdine.IN_CORSO,3, LocalDate.now(), prezzoCoperto);
+    }
 }
