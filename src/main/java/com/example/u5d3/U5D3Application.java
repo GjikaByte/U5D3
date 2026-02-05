@@ -9,6 +9,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class U5D3Application {
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext ctx = SpringApplication.run(U5D3Application.class, args);
+        SpringApplication.run(U5D3Application.class, args);
     }
 }
