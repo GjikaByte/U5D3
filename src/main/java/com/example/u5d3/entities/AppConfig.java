@@ -2,12 +2,14 @@ package com.example.u5d3.entities;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
+@PropertySource("application.properties")
 public class AppConfig {
     @Bean(name = "toppings_tomato")
     public Topping toppingTomato() {
